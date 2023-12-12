@@ -33,6 +33,7 @@ export default function CustomsShare() {
       icon: <WhatsappIcon />,
     },
   ];
+  const share_url = "https://youtube.com"
 
   const shareLinkForIOS = () => {
     const appName = "your-ios-app"; // ตัวแทนชื่อแอปของคุณ
@@ -60,7 +61,7 @@ export default function CustomsShare() {
       navigator
         .share({
           title: "Check out this app!",
-          url: "https://your-website.com", // URL ของเว็บไซต์ของคุณ
+          url: share_url, // URL ของเว็บไซต์ของคุณ
         })
         .catch((error) => console.error("Error sharing:", error));
     } else {
