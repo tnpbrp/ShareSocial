@@ -207,7 +207,7 @@ export default function CustomsShare({ browser, device }) {
           }}
         >
           <Image
-            src="../share.svg"
+            src="../share-orange.svg"
             alt="Next.js Logo"
             width={180}
             height={37}
