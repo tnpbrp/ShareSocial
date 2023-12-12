@@ -9,31 +9,35 @@ import {
   XIcon,
 } from "react-share";
 import { Button } from "antd";
+import { useState } from "react";
 
-export default function CustomsShare() {
+export default function CustomsShare({browser,device}) {
   const socialMedia = [
     {
       name: "Email",
-      icon: <EmailIcon />,
+      icon: <EmailIcon round size={35} />,
     },
     {
       name: "Facebook",
-      icon: <FacebookIcon />,
+      icon: <FacebookIcon round size={35} />,
     },
     {
       name: "Line",
-      icon: <LineIcon />,
+      icon: <LineIcon round size={35} />,
     },
     {
       name: "X",
-      icon: <XIcon />,
+      icon: <XIcon round size={35} />,
     },
     {
       name: "WhatsApp",
-      icon: <WhatsappIcon />,
+      icon: <WhatsappIcon round size={35} />,
     },
   ];
-  const share_url = "https://youtube.com"
+  const [browserInfo, setBrowserInfo] = useState(browser);
+  const [deviceInfo, setDeviceInfo] = useState(device);
+
+  const share_url = "https://youtube.com";
 
   const shareLinkForIOS = () => {
     const appName = "your-ios-app"; // ตัวแทนชื่อแอปของคุณ
@@ -45,6 +49,7 @@ export default function CustomsShare() {
     // ส่งไปยังแอปอีเมลหรือแชร์ไปยังโซเชียลมีเดียอื่น ๆ
     window.location.href = shareLink;
   };
+
   const shareLinkForAndroid = () => {
     const appName = "your-android-app"; // ตัวแทนชื่อแอปของคุณ
     const appPackage = "com.your.android.app"; // แพคเกจของแอปของคุณ
@@ -56,7 +61,7 @@ export default function CustomsShare() {
     window.location.href = shareLink;
   };
 
-  const handleShare = () => {
+  const handleShare = (social) => {
     if (navigator.share) {
       navigator
         .share({
@@ -77,6 +82,7 @@ export default function CustomsShare() {
         // PC
         alert("Click here to copy the link: https://your-website.com");
         console.log("Share on Browser");
+        
       }
     }
   };
@@ -178,7 +184,7 @@ export default function CustomsShare() {
 
   return (
     <div>
-        <h1>Customs button share for native</h1>
+      <h1>Customs button share for native</h1>
       <ul
         style={{
           listStyleType: "none",
@@ -188,13 +194,19 @@ export default function CustomsShare() {
       >
         {socialMedia.map((item, idx) => (
           <li key={idx} style={{ padding: "3px" }}>
-            <Button
-              onClick={handleFacebookShare}
-              icon={item.icon}
-              style={{ width: "fit-content", height: "fit-content" }}
+            <a
+              onClick={() => {
+                handleShare(item.name);
+              }}
+              //   icon={item.icon}
+              style={{
+                width: "fit-content",
+                height: "fit-content",
+                cursor: "pointer",
+              }}
             >
-              {/* {item.name} */}
-            </Button>
+              {item.icon}
+            </a>
           </li>
         ))}
       </ul>

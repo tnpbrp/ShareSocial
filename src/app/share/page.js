@@ -52,13 +52,12 @@ export default function SharePage() {
         {deviceInfo && <p>Device: {deviceInfo}</p>}
       </div>
       <br></br>
-      {deviceInfo === "Desktop Device" ? <ReactShare /> : <CustomsShare />}
+      {/* {deviceInfo === "Desktop Device" ? <ReactShare /> : <CustomsShare />} */}
 
       {/* Use for web browser */}
-      {/* <ReactShare /> */}
-
+      <ReactShare />
       {/* Use for link native app */}
-      {/* <CustomsShare /> */}
+      <CustomsShare browser={browserInfo} device={deviceInfo}/>
     </main>
   );
 }
