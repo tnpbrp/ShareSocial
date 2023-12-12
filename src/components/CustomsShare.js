@@ -62,7 +62,7 @@ export default function CustomsShare({ browser, device }) {
     window.location.href = shareLink;
   };
 
-  const handleShare = (social) => {
+  const handleShare = () => {
     if (navigator.share) {
       navigator
         .share({
@@ -106,7 +106,7 @@ export default function CustomsShare({ browser, device }) {
     }
   };
 
-  // Test
+
   const handleFacebookShare = () => {
     const shareUrl = "https://www.youtube.com/";
     const facebookAppLink = `fb://share/?url=${shareUrl}`;
@@ -197,7 +197,7 @@ export default function CustomsShare({ browser, device }) {
       <div style={{ textAlign: "center" }}>
         <a
           onClick={() => {
-            handleShare(item.name);
+            handleShare();
           }}
           //   icon={item.icon}
           style={{
