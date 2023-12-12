@@ -10,8 +10,9 @@ import {
 } from "react-share";
 import { Button } from "antd";
 import { useState } from "react";
+import Image from "next/image";
 
-export default function CustomsShare({browser,device}) {
+export default function CustomsShare({ browser, device }) {
   const socialMedia = [
     {
       name: "Email",
@@ -82,7 +83,6 @@ export default function CustomsShare({browser,device}) {
         // PC
         alert("Click here to copy the link: https://your-website.com");
         console.log("Share on Browser");
-        
       }
     }
   };
@@ -185,7 +185,7 @@ export default function CustomsShare({browser,device}) {
   return (
     <div>
       <h1>Customs button share for native</h1>
-      <ul
+      {/* <ul
         style={{
           listStyleType: "none",
           display: "flex",
@@ -193,23 +193,32 @@ export default function CustomsShare({browser,device}) {
         }}
       >
         {socialMedia.map((item, idx) => (
-          <li key={idx} style={{ padding: "3px" }}>
-            <a
-              onClick={() => {
-                handleShare(item.name);
-              }}
-              //   icon={item.icon}
-              style={{
-                width: "fit-content",
-                height: "fit-content",
-                cursor: "pointer",
-              }}
-            >
-              {item.icon}
-            </a>
-          </li>
+          <li key={idx} style={{ padding: "3px" }}> */}
+      <div style={{ textAlign: "center" }}>
+        <a
+          onClick={() => {
+            handleShare(item.name);
+          }}
+          //   icon={item.icon}
+          style={{
+            width: "fit-content",
+            height: "fit-content",
+            cursor: "pointer",
+          }}
+        >
+          <Image
+            src="../share.svg"
+            alt="Next.js Logo"
+            width={180}
+            height={37}
+            priority
+          />
+          {/* {item.icon} */}
+        </a>
+      </div>
+      {/* </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }
