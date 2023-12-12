@@ -38,7 +38,7 @@ export default function CustomsShare({ browser, device }) {
   const [browserInfo, setBrowserInfo] = useState(browser);
   const [deviceInfo, setDeviceInfo] = useState(device);
 
-  const share_url = "https://youtube.com";
+  const share_url = "https://agency-station.bangkoklife.com";
 
   const shareLinkForIOS = () => {
     const appName = "your-ios-app"; // ตัวแทนชื่อแอปของคุณ
