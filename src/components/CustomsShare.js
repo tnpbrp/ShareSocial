@@ -70,16 +70,12 @@ export default function CustomsShare({ browser, device }) {
           url: share_url, // URL ของเว็บไซต์ของคุณ
         })
         .catch((error) => console.error("Error sharing:", error));
-        alert(1)
     } else {
-      alert(2)
       // ถ้าไม่สามารถใช้ navigator.share ได้, ให้ตรวจสอบอุปกรณ์ที่ใช้กด
       if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      alert(2,"IOS")
         // สำหรับ iOS
         shareLinkForIOS();
       } else if (/Android/.test(navigator.userAgent)) {
-      alert(2,"Android")
         // สำหรับ Android
         shareLinkForAndroid();
       } else {
