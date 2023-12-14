@@ -1,52 +1,15 @@
 "use client";
-import {
-  EmailIcon,
-  FacebookIcon,
-  FacebookMessengerIcon,
-  FacebookShareCount,
-  LineIcon,
-  WhatsappIcon,
-  XIcon,
-} from "react-share";
-import { Button } from "antd";
-import { useState } from "react";
 import Image from "next/image";
 
-export default function CustomsShare({ browser, device }) {
-  const socialMedia = [
-    {
-      name: "Email",
-      icon: <EmailIcon round size={35} />,
-    },
-    {
-      name: "Facebook",
-      icon: <FacebookIcon round size={35} />,
-    },
-    {
-      name: "Line",
-      icon: <LineIcon round size={35} />,
-    },
-    {
-      name: "X",
-      icon: <XIcon round size={35} />,
-    },
-    {
-      name: "WhatsApp",
-      icon: <WhatsappIcon round size={35} />,
-    },
-  ];
-  const [browserInfo, setBrowserInfo] = useState(browser);
-  const [deviceInfo, setDeviceInfo] = useState(device);
-
+export default function CustomsShare() {
   const share_url = "https://www.youtube.com";
-
   const handleShare = () => {
     if (navigator.share) {
       alert("Navigator share")
       navigator
         .share({
           title: "Check out this app!",
-          text: "test",
+          text: "",
           url: share_url,
         })
         .catch((error) => {

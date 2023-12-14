@@ -23,28 +23,28 @@ export default function ReactShare() {
       <h1>Plugin React-Share for Desktop &nbsp;</h1>
       {/* Support Chorme,FireFox,Safari */}
       {/* Edge don't know */}
-      <EmailShareButton url={share_url}>
-        <EmailIcon size={32} round />
+      <EmailShareButton url={share_url} style={{padding:"5px"}}>
+        <EmailIcon size={40} round />
         {/* Email */}
       </EmailShareButton>
 
-      <FacebookShareButton url={share_url}>
-        <FacebookIcon size={32} round />
+      <FacebookShareButton url={share_url} style={{padding:"5px"}}>
+        <FacebookIcon size={40} round />
         {/* Facebook */}
       </FacebookShareButton>
 
-      <LineShareButton url={share_url}>
-        <LineIcon size={32} round />
+      <LineShareButton url={share_url} style={{padding:"5px"}}>
+        <LineIcon size={40} round />
         {/* Line */}
       </LineShareButton>
 
-      <TwitterShareButton url={share_url}>
-        <XIcon size={32} round />
+      <TwitterShareButton url={share_url} style={{padding:"5px"}}>
+        <XIcon size={40} round />
         {/* X */}
       </TwitterShareButton>
 
-      <WhatsappShareButton url={share_url}>
-        <WhatsappIcon size={32} round />
+      <WhatsappShareButton url={share_url} style={{padding:"5px"}}>
+        <WhatsappIcon size={40} round />
         {/* WhatsApp */}
       </WhatsappShareButton>
     </div>
