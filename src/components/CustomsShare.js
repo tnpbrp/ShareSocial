@@ -38,18 +38,26 @@ export default function CustomsShare({ browser, device }) {
   const [browserInfo, setBrowserInfo] = useState(browser);
   const [deviceInfo, setDeviceInfo] = useState(device);
 
-  const share_url = "https://agency-station.bangkoklife.com";
+  const share_url = "https://www.youtube.com";
 
   const handleShare = () => {
-    alert(navigator.share)
     if (navigator.share) {
+      alert("Navigator share")
       navigator
         .share({
           title: "Check out this app!",
+          text: "test",
           url: share_url,
         })
-        .catch((error) => console.error("Error sharing:", error));
+        .catch((error) => {
+          if (error.name === 'AbortError') {
+            console.warn('Share operation canceled by the user.');
+          } else {
+            console.error('Error sharing:', error.message);
+          }
+        });
     } else {
+      alert("Can not use Navigator share");
       return false;
     }
   };
