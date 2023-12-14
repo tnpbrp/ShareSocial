@@ -50,6 +50,7 @@ export default function SharePage() {
         <h1>Share Social - Browser & Native App</h1>
         {browserInfo && <p>Browser: {browserInfo}</p>}
         {deviceInfo && <p>Device: {deviceInfo}</p>}
+        {navigator.share && <p>navigator share: {navigator.share}</p>}
       </div>
       <br></br>
       {/* {deviceInfo === "Desktop Device" ? <ReactShare /> : <CustomsShare />} */}

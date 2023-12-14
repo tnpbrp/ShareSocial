@@ -40,49 +40,17 @@ export default function CustomsShare({ browser, device }) {
 
   const share_url = "https://agency-station.bangkoklife.com";
 
-  const shareLinkForIOS = () => {
-    const appName = "your-ios-app"; // ตัวแทนชื่อแอปของคุณ
-    const appScheme = `${appName}://`; // URI Scheme ของแอป
-
-    // สร้าง URI Scheme สำหรับแชร์
-    const shareLink = `mailto:?subject=Check%20out%20${appName}&body=Download%20${appName}%20app%20here:%20${appScheme}`;
-
-    // ส่งไปยังแอปอีเมลหรือแชร์ไปยังโซเชียลมีเดียอื่น ๆ
-    window.location.href = shareLink;
-  };
-
-  const shareLinkForAndroid = () => {
-    const appName = "your-android-app"; // ตัวแทนชื่อแอปของคุณ
-    const appPackage = "com.your.android.app"; // แพคเกจของแอปของคุณ
-
-    // สร้าง App Link สำหรับแชร์
-    const shareLink = `https://play.google.com/store/apps/details?id=${appPackage}`;
-
-    // ส่งไปยังแอปเบราว์เซอร์หรือแชร์ไปยังโซเชียลมีเดียอื่น ๆ
-    window.location.href = shareLink;
-  };
-
   const handleShare = () => {
+    alert(navigator.share)
     if (navigator.share) {
       navigator
         .share({
           title: "Check out this app!",
-          url: share_url, // URL ของเว็บไซต์ของคุณ
+          url: share_url,
         })
         .catch((error) => console.error("Error sharing:", error));
     } else {
-      // ถ้าไม่สามารถใช้ navigator.share ได้, ให้ตรวจสอบอุปกรณ์ที่ใช้กด
-      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        // สำหรับ iOS
-        shareLinkForIOS();
-      } else if (/Android/.test(navigator.userAgent)) {
-        // สำหรับ Android
-        shareLinkForAndroid();
-      } else {
-        // ถ้าไม่รู้จักอุปกรณ์, สามารถแสดงป๊อปอัพขึ้นมาแสดงข้อความหรือลิงค์ที่สามารถคัดลอกได้
-        alert("Click here to copy the link: https://your-website.com");
-        console.log("Share on Browser");
-      }
+      return false;
     }
   };
 
