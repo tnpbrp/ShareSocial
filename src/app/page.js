@@ -53,14 +53,16 @@ export default function SharePage() {
         {browserInfo && <p>Browser: {browserInfo}</p>}
         {deviceInfo && <p>Device: {deviceInfo}</p>}
       </div>
+      <div className={styles.description}>
+        <p style={{ backgroundColor: navigator.share ? "yellowgreen" : "#FFB534" }}>Navigator-Share : {navigator.share ? "Support" : "Not supported !"}</p>
+      </div>
 
       <br></br>
       {/* {deviceInfo === "Desktop Device" ? <ReactShare /> : <CustomsShare />} */}
-
       {/* Use for web browser */}
       <ReactShare />
       {/* Use for link native app */}
-      <CustomsShare  />
+      <CustomsShare />
     </main>
   );
 }

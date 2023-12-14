@@ -5,7 +5,6 @@ export default function CustomsShare() {
   const share_url = "https://www.youtube.com";
   const handleShare = () => {
     if (navigator.share) {
-      alert("Navigator share")
       navigator
         .share({
           title: "Check out this app!",
